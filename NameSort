@@ -1,0 +1,114 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
+import java.util.ArrayList;
+
+public class NameSorter extends JFrame implements ActionListener {
+    Container contentPane = getContentPane();
+
+    JTextArea NameU = new JTextArea(7,37);
+
+    JButton STN = new JButton("SORT THOSE NAMES!");
+    JButton Save1 = new JButton("Save Name 1");
+    JButton Save2 = new JButton("Save Name 2");
+    JButton Save3 = new JButton("Save Name 3");
+    JButton Save4 = new JButton("Save Name 4");
+    JButton Save5 = new JButton("Save Name 5");
+    JButton Clr = new JButton("Clear Text");
+    JButton Closed = new JButton("Close");
+    JButton Back = new JButton("Back");
+
+    String[] arr = new String[5]; //Now I'm Mad!
+
+    public NameSorter(){
+        super("Initiative Tracker");
+        setSize(400,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel Npnl = new JPanel(new GridLayout(9,1));
+
+        STN.addActionListener(this);
+        Save1.addActionListener(this);
+        Save2.addActionListener(this);
+        Save3.addActionListener(this);
+        Save4.addActionListener(this);
+        Save5.addActionListener(this);
+        Closed.addActionListener(this);
+        Back.addActionListener(this);
+        Clr.addActionListener(this);
+
+        Npnl.add(Clr);
+        Npnl.add(Save1);
+        Npnl.add(Save2);
+        Npnl.add(Save3);
+        Npnl.add(Save4);
+        Npnl.add(Save5);
+        Npnl.add(STN);
+        Npnl.add(Closed);
+        Npnl.add(Back);
+
+        contentPane.add("North", NameU);
+        contentPane.add("Center", Npnl);
+        setVisible(true);
+        NameU.setText("Enter the Names to be sorted!");
+        NameU.setLineWrap(true);
+        NameU.setWrapStyleWord(true);
+    }
+
+public void actionPerformed(ActionEvent event) {
+        if(event.getSource()==Clr){
+            NameU.setText(" ");
+        }
+        if(event.getSource()==Closed){
+            System.exit(1);
+        }
+        if(event.getSource()==Save1){
+            arr[0] = NameU.getText();
+            NameU.setText("Saved - " + arr[0]);
+        }
+        if(event.getSource()==Save2){
+             arr[1] = NameU.getText();
+            NameU.setText("Saved - " + arr[1]);
+        }
+        if(event.getSource()==Save3){
+             arr[2] = NameU.getText();
+            NameU.setText("Saved - " + arr[2]);
+        }
+        if(event.getSource()==Save4){
+             arr[3] = NameU.getText();
+            NameU.setText("Saved - " + arr[3]);
+        }
+        if(event.getSource()==Save5){
+            arr[4] = NameU.getText();
+            NameU.setText("Saved - " + arr[4]);
+        }
+        if(event.getSource()==STN){
+            List<String> list = Arrays.asList(arr);
+
+            Collections.shuffle(list);
+
+            StringBuffer sb = new StringBuffer(500000);
+
+            for (String s : list) {
+                sb.append(s);
+                sb.append(" ");
+            }
+            String str = sb.toString();
+            NameU.setText(str);
+            }
+        if(event.getSource()==Back){
+            Calculator calc = new Calculator();
+            dispose();
+        }
+        }
+    }
+
+    //I Hate Myself and Everything about all of this
