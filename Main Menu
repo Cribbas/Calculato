@@ -1,0 +1,81 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+
+public class Calculator extends JFrame implements ActionListener {
+    Container contentPane = getContentPane();
+
+    JButton DR = new JButton("Dice Roller");
+    JButton Fun = new JButton("Fun Button (Press for Fun)");
+    JButton NS = new JButton("Name Sorter");
+    JButton PG = new JButton("Personality Generator");
+    JButton MG = new JButton("Text-Based Map Generator");
+    JButton Close = new JButton("Close");
+
+    //Constructor
+    public Calculator(){
+        super("Welcome To Calculato! Your Personal DND Assistant");
+        setSize(400,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel pnl = new JPanel(new GridLayout(3,2));
+
+        //creating listeners inside constructor
+        DR.addActionListener(this);
+        NS.addActionListener(this);
+        PG.addActionListener(this);
+
+        Fun.addActionListener(this);
+        MG.addActionListener(this);
+        Close.addActionListener(this);
+
+        pnl.add(MG);
+        pnl.add(DR);
+        pnl.add(NS);
+        pnl.add(PG);
+        pnl.add(Fun);
+        pnl.add(Close);
+
+        //addinng buttons and text field to content pane
+        contentPane.add("Center",pnl);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent event){
+        if(event.getSource()==DR){
+            DiceRoller Dice = new DiceRoller();
+            dispose();
+        }
+        if(event.getSource()==NS){
+            NameSorter Name = new NameSorter();
+            dispose();
+        }
+        if(event.getSource()==Close){
+            System.exit(1);
+        }
+        if(event.getSource()==PG){
+            PersonGen Person = new PersonGen();
+            dispose();
+        }
+        if(event.getSource()==MG){
+            MapGen Map = new MapGen();
+            dispose();
+        }
+        if(event.getSource()==Fun){
+            Fun pic = new Fun();
+            dispose();
+        }
+
+    }
+
+    int toInt(String a){
+        int val =0;
+        for(int i =0;i<a.length();i++){
+            val = (val * 10) + (int) a.charAt(i);
+        }
+        return val;
+    }
+}
