@@ -1,0 +1,220 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class PersonGen extends JFrame implements ActionListener {
+
+    Container contentPane = getContentPane();
+
+    JButton Gen = new JButton("Get That PERSONALITY TRAIT!");
+    JButton Clo = new JButton("Close");
+    JButton Ba = new JButton("Back");
+
+    JTextArea Ptxt = new JTextArea(6,37);
+
+    public PersonGen(){
+        super("Personality Trait Generator");
+        setSize(600,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel Ppnl = new JPanel(new GridLayout(3,1));
+
+        Gen.addActionListener(this);
+        Clo.addActionListener(this);
+        Ba.addActionListener(this);
+
+        Ppnl.add(Gen);
+        Ppnl.add(Clo);
+        Ppnl.add(Ba);
+
+        contentPane.add("North", Ptxt);
+        contentPane.add("Center", Ppnl);
+        setVisible(true);
+        Ptxt.setText("Over FIFTY Options!");
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        if(event.getSource()==Clo){
+            System.exit(1);
+        }
+        if(event.getSource()==Ba){
+            Calculator calco = new Calculator();
+            dispose();
+        }
+        if(event.getSource()==Gen){
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(52.0 * Math.random());
+                if(randomInt == 0){
+                    Ptxt.setText("I idolize a particular hero of my faith and constantly refer to that person's deeds and example");
+                }
+                if(randomInt == 1){
+                    Ptxt.setText("I can find common ground between the fiercest enemies, empathizing with them and\n" +
+                            "always working toward peace.");
+                }
+                if(randomInt == 2){
+                    Ptxt.setText("I see omens in every event and action. The gods try to speak to us, we just need to listen. ");
+                }
+                if(randomInt == 3){
+                    Ptxt.setText("Nothing can shake my optimistic attitude.");
+                }
+                if(randomInt == 4){
+                    Ptxt.setText("I quote (or misquote) the sacred texts and proverbs in almost every situation.");
+                }
+                if(randomInt == 5){
+                    Ptxt.setText("I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other\n" +
+                            "gods. ");
+                }
+                if(randomInt == 6){
+                    Ptxt.setText("I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates\n" +
+                            "on me.");
+                }
+                if(randomInt == 7){
+                    Ptxt.setText("I've spent so long in the temple that I have little practical experience dealing with people in\n" +
+                            "the outside world.");
+                }
+                if(randomInt == 8){
+                    Ptxt.setText("I fall in and out of love easily, and am always pursuing someone.");
+                }
+                if(randomInt == 9){
+                    Ptxt.setText("I have a joke for every occasion, especially occasions where humor is inappropriate.");
+                }
+                if(randomInt == 10){
+                    Ptxt.setText("Flattery is my preferred trick for getting what I want.");
+                }
+                if(randomInt == 11){
+                    Ptxt.setText(". I'm a born gambler who can't resist taking a risk for a potential payoff");
+                }
+                if(randomInt == 12){
+                    Ptxt.setText("I lie about almost everything, even when there's no good reason to.");
+                }
+                if(randomInt == 13){
+                    Ptxt.setText("Sarcasm and insults are my weapons of choice.");
+                }
+                if(randomInt == 14){
+                    Ptxt.setText("I keep multiple holy symbols on me and invoke whatever deity might come in useful at any\n" +
+                            "given moment.");
+                }
+                if(randomInt == 15){
+                    Ptxt.setText("I pocket anything I see that might have some value. ");
+                }
+                if(randomInt == 16){
+                    Ptxt.setText("I always have plan for what to do when things go wrong.");
+                }
+                if(randomInt == 17){
+                    Ptxt.setText("I am always calm, no matter what the situation. I never raise my voice or let my emotions\n" +
+                            "control me. ");
+                }
+                if(randomInt == 18){
+                    Ptxt.setText("The first thing I do in a new place is note the locations of everything valuable--or where\n" +
+                            "such things could be hidden.");
+                }
+                if(randomInt == 19){
+                    Ptxt.setText("I would rather make a new friend than a new enemy");
+                }
+                if(randomInt == 20){
+                    Ptxt.setText("I am incredibly slow to trust. Those who seem the fairest often have the most to hide.");
+                }
+                if(randomInt == 21){
+                    Ptxt.setText("I don't pay attention to the risks in a situation. Never tell me the odds.");
+                }
+                if(randomInt == 22){
+                    Ptxt.setText("The best way to get me to do something is to tell me I can't do it.");
+                }
+                if(randomInt == 23){
+                    Ptxt.setText("I blow up at the slightest insult");
+                }
+                if(randomInt == 24){
+                    Ptxt.setText("I know a story relevant to almost every situation.");
+                }
+                if(randomInt == 25){
+                    Ptxt.setText("Whenever I come to a new place, I collect local rumors and spread gossip. ");
+                }
+                if(randomInt == 26){
+                    Ptxt.setText("I'm a hopeless romantic, always searching for that 'special someone'. ");
+                }
+                if(randomInt == 27){
+                    Ptxt.setText("Nobody stays angry at me or around me for long, since I can defuse any amount of tension.");
+                }
+                if(randomInt == 28){
+                    Ptxt.setText("I love a good insult, even one directed at me");
+                }
+                if(randomInt == 29){
+                    Ptxt.setText("I get bitter if I'm not the center of attention. ");
+                }
+                if(randomInt == 30){
+                    Ptxt.setText("I'll settle for nothing less than perfection.");
+                }
+                if(randomInt == 31){
+                    Ptxt.setText("I change my mood or my mind as quickly as I change key in a song.");
+                }
+                if(randomInt == 32){
+                    Ptxt.setText("I judge people by their actions, not their words");
+                }
+                if(randomInt == 33){
+                    Ptxt.setText("If someone is in trouble, I'm always willing to lend help.");
+                }
+                if(randomInt == 34){
+                    Ptxt.setText("When I set my mind to something, I follow through no matter what gets in my way.");
+                }
+                if(randomInt == 35){
+                    Ptxt.setText("I have a strong sense of fair play and always try to find the most equitable solution to\n" +
+                            "arguments");
+                }
+                if(randomInt == 36){
+                    Ptxt.setText("I'm confident in my own abilities and do what I can to instill confidence in others.");
+                }
+                if(randomInt == 37){
+                    Ptxt.setText("Thinking is for other people. I prefer action.");
+                }
+                if(randomInt == 38){
+                    Ptxt.setText("I misuse long words in an attempt to sound smarter. ");
+                }
+                if(randomInt == 39){
+                    Ptxt.setText("I get bored easily. When am I going to get on with my destiny.");
+                }
+                if(randomInt == 40){
+                    Ptxt.setText("I believe that everything worth doing is worth doing right. I can't help it--I'm a perfectionist.");
+                }
+                if(randomInt == 41){
+                    Ptxt.setText("I'm a snob who looks down on those who can't appreciate fine art.");
+                }
+                if(randomInt == 42){
+                    Ptxt.setText("I always want to know how things work and what makes people tick. ");
+                }
+                if(randomInt == 43){
+                    Ptxt.setText("I'm full of witty aphorisms and have a proverb for every occasion.");
+                }
+                if(randomInt == 44){
+                    Ptxt.setText("I'm rude to people who lack my commitment to hard work and fair play");
+                }
+                if(randomInt == 45){
+                    Ptxt.setText("I like to talk at length about my profession.");
+                }
+                if(randomInt == 46){
+                    Ptxt.setText("I don't part with my money easily and will haggle tirelessly to get the best deal possible.");
+                }
+                if(randomInt == 47){
+                    Ptxt.setText(". I'm well known for my work, and I want to make sure everyone appreciates it. I'm always\n" +
+                            "taken aback when people haven't heard of me.");
+                }
+                if(randomInt == 48){
+                    Ptxt.setText("I've been isolated for so long that I rarely speak, preferring gestures and the occasional\n" +
+                            "grunt. ");
+                }
+                if(randomInt == 49){
+                    Ptxt.setText("I am utterly serene, even in the face of disaster.");
+                }
+                if(randomInt == 50){
+                    Ptxt.setText("The leader of my community has something wise to say on every topic, and I am eager to\n" +
+                            "share that wisdom.");
+                }
+                if(randomInt == 51){
+                    Ptxt.setText("I feel tremendous empathy for all who suffer.");
+                }
+            }
+        }
+    }
+}
