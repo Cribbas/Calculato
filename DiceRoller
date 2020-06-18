@@ -1,0 +1,184 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import java.awt.Color;
+
+public class DiceRoller extends JFrame implements ActionListener {
+    Container contentPane = getContentPane();
+
+    JButton D20 = new JButton("D20");
+    JButton D12 = new JButton("D12");
+    JButton D10 = new JButton("D10");
+    JButton D8 = new JButton("D8");
+    JButton D6 = new JButton("D6");
+    JButton D4 = new JButton("D4");
+    JButton Coin = new JButton("Coin");
+    JButton Cl = new JButton("Back");
+
+    JTextArea Rtxt = new JTextArea();
+
+
+    public DiceRoller() {
+        super("Welcome to the Dice Roller!");
+        setSize(400, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel Dpnl = new JPanel(new GridLayout(4, 2));
+
+        D20.addActionListener(this);
+        D12.addActionListener(this);
+        D10.addActionListener(this);
+        D8.addActionListener(this);
+        D6.addActionListener(this);
+        D4.addActionListener(this);
+        Coin.addActionListener(this);
+        Cl.addActionListener(this);
+
+        Dpnl.add(D20);
+        Dpnl.add(D12);
+        Dpnl.add(D10);
+        Dpnl.add(D8);
+        Dpnl.add(D6);
+        Dpnl.add(D4);
+        Dpnl.add(Coin);
+        Dpnl.add(Cl);
+
+        contentPane.add("North", Rtxt);
+        contentPane.add("Center", Dpnl);
+        setVisible(true);
+        Rtxt.setText("Roll the Dice!");
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource() == D20) {
+            Rtxt.setForeground(Color.BLACK);
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(20.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 20){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+
+            }
+            }
+        if (event.getSource() == D12) {
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(12.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 12){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+            }
+        }
+        if (event.getSource() == D10) {
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(10.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 10){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+            }
+        }
+        if (event.getSource() == D8) {
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(8.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 8){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+            }
+        }
+        if (event.getSource() == D6) {
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(6.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 6){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+            }
+        }
+        if (event.getSource() == D4) {
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(4.0 * Math.random() + 1);
+                String PLace = Integer.toString(randomInt);
+                if(randomInt == 4){
+                    Rtxt.setForeground(Color.GREEN);
+                    Rtxt.setText(PLace);
+                } else {
+                    if(randomInt == 1){
+                        Rtxt.setForeground(Color.RED);
+                        Rtxt.setText(PLace);
+                    } else {
+                        Rtxt.setForeground(Color.BLACK);
+                        Rtxt.setText(PLace);
+                    }
+                }
+            }
+        }
+        if (event.getSource() == Coin) {
+            Rtxt.setForeground(Color.BLACK);
+            for(int i =0; i<3; i++){
+                int randomInt = (int)(2.0 * Math.random());
+                if(randomInt == 0) {
+                    Rtxt.setText("Heads");
+                }
+                if(randomInt == 1){
+                    Rtxt.setText("Tails");
+                }
+            }
+        }
+        if(event.getSource() == Cl){
+            Calculator calc = new Calculator();
+            dispose();
+        }
+        }
+    }
