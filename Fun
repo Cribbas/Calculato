@@ -1,0 +1,27 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Fun extends JFrame{
+        Container contentPane = getContentPane();
+        ImageIcon aaah = new ImageIcon("File for placing.jpg");
+        JLabel bhhh = new JLabel(aaah);
+
+
+    public Fun(){
+            super("Fun Image");
+            setSize(1920,1080);
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            JPanel Fpnl = new JPanel(new GridLayout(1,1));
+
+            add(Fpnl);
+            Fpnl.add(bhhh);
+            Fpnl.setLayout(null);
+            bhhh.setBounds(200,200,200,200);
+
+            contentPane.add("Center", bhhh);
+            setVisible(true);
+        }
+    }
+
