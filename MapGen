@@ -1,0 +1,60 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MapGen extends JFrame implements ActionListener {
+
+    Container contentPane = getContentPane();
+
+    JButton Mapg = new JButton("A New Dungeon Awaits!");
+    JButton Clos = new JButton("Close");
+    JButton Bac = new JButton("Back");
+
+    JTextArea Mtxt = new JTextArea(6,37);
+
+    public MapGen(){
+        super("Map Generator");
+        setSize(400,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel Mpnl = new JPanel(new GridLayout(2,1));
+
+        Mapg.addActionListener(this);
+        Clos.addActionListener(this);
+        Bac.addActionListener(this);
+
+        Mpnl.add(Mapg);
+        Mpnl.add(Clos);
+        Mpnl.add(Bac);
+
+        contentPane.add("North", Mtxt);
+        contentPane.add("Center", Mpnl);
+        setVisible(true);
+        Mtxt.setText("Generate your very own dungeons!");
+        Mtxt.setLineWrap(true);
+        Mtxt.setWrapStyleWord(true);
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        if(event.getSource()==Mapg){
+            for(int i =0; i<3; i++){
+                int Long = (int)(20.0 * Math.random());
+                int Wide = (int)(20.0 * Math.random());
+                int Treasure = (int)(4.0 * Math.random());
+                int Enemy = (int)(5.0 * Math.random());
+                int ETypes = (int)(2.0 * Math.random());
+                Mtxt.setText("The room is: " + Integer.toString(Long + 1) + " feet long, " + Integer.toString(Wide + 1) + " feet wide with " + Integer.toString(Treasure + 1) + " treasure chests guarded by " + Integer.toString(Enemy + 1) + " enemies of " + Integer.toString(ETypes + 1) + " type(s). Good Luck!");
+            }
+        }
+        if(event.getSource()==Clos){
+            System.exit(1);
+        }
+        if(event.getSource()==Bac){
+            Calculator calc = new Calculator();
+            dispose();
+        }
+    }
+}
