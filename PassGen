@@ -1,0 +1,106 @@
+package com.signature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
+import java.util.ArrayList;
+
+public class PassGen extends JFrame implements ActionListener{
+    Container contentPane = getContentPane();
+
+    JTextArea PassU = new JTextArea(1,1);
+
+    JButton GTP = new JButton("Generate a Password (8 char, 1 special, 3 num)");
+    JButton BACH = new JButton("Back");
+    JButton CLOTHES = new JButton("Close");
+
+    char[] arra = new char[8];
+    int[] arrr = new int[3];
+    char[] ara = new char[1];
+    char[] arrrr = new char[1];
+
+    public PassGen(){
+        super("Easy Password Generator");
+        setSize(400,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel EPnl = new JPanel(new GridLayout(3,1));
+
+        GTP.addActionListener(this);
+        BACH.addActionListener(this);
+        CLOTHES.addActionListener(this);
+
+        EPnl.add(GTP);
+        EPnl.add(BACH);
+        EPnl.add(CLOTHES);
+
+        contentPane.add("North", PassU);
+        contentPane.add("Center", EPnl);
+        setVisible(true);
+        PassU.setText("Press button to generate a moderately safe password!");
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        if(event.getSource()==BACH){
+            Calculator calca = new Calculator();
+            dispose();
+        }
+        if(event.getSource()==CLOTHES){
+            System.exit(1);
+        }
+        if(event.getSource()==GTP){
+            Random r = new Random();
+            char c = (char)(r.nextInt(26) + 'a');
+            char b = (char)(r.nextInt(26) + 'a');
+            char d = (char)(r.nextInt(26) + 'a');
+            char e = (char)(r.nextInt(26) + 'a');
+            char f = (char)(r.nextInt(26) + 'a');
+            char g = (char)(r.nextInt(26) + 'a');
+            char k = (char)(r.nextInt(26) + 'a');
+            char t = (char)(r.nextInt(26) + 'a');
+            arra[0] = c;
+            arra[1] = b;
+            arra[2] = d;
+            arra[3] = e;
+            arra[4] = f;
+            arra[5] = g;
+            arra[6] = k;
+            arra[7] = t;
+
+            int randomInt = (int) (9 * Math.random() + 1);
+            arrr[0] = randomInt;
+
+            int rint = (int) (9 * Math.random() + 1);
+            arrr[1] = rint;
+
+            int raint = (int) (9 * Math.random() + 1);
+            arrr[2] = raint;
+
+            StringBuilder builder = new StringBuilder();
+            for (int value : arrr) {
+                builder.append(value);
+            }
+            String text = builder.toString();
+
+
+            Random q = new Random();
+
+            String s = "!@#$%^&*(){}[]?/|-_=+~`,.<>";
+            int l = (int)(Math.random()*s.length());
+            char ch = s.charAt(l);
+            ara[0] = ch;
+
+            char p = (char)(r.nextInt(26) + 'A');
+            arrrr[0] = p;
+
+            PassU.setText(String.valueOf(arra) + text + String.valueOf(ara) + String.valueOf(arrrr));
+        }
+
+    }
+}
